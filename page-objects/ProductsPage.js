@@ -12,7 +12,7 @@ export class ProductsPage {
   }
 
   visit = async () => {
-    await this.page.goto("/");
+    await this.page.goto("http://localhost:2221");
   };
 
   getBasketCount = async () => {
@@ -42,6 +42,5 @@ export class ProductsPage {
     await this.sortDropdown.selectOption("price-asc");
     const productTitleAfterSorting = await this.productTitle.allInnerTexts();
     expect(productTitleAfterSorting).not.toEqual(productTitleBeforeSorting);
-  
   };
 }

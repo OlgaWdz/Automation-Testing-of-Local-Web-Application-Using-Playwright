@@ -15,6 +15,6 @@ export class Navigation {
   goToCheckout = async () => {
     await this.checkoutLink.waitFor();
     await this.checkoutLink.click();
-    await this.page.waitForURL("/basket");
+    await this.page.waitForURL("http://localhost:2221/basket");
   };
 }
