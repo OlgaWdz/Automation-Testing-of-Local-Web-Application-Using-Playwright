@@ -29,7 +29,7 @@ export class DeliveryDetails {
     this.savedAddressCountry = page.locator(
       '[data-qa="saved-address-country"]'
     );
-    this.continueToPayment = page.getByRole("button", {
+    this.continueToPaymentButton = page.getByRole("button", {
       name: "Continue to Payment",
     });
   }
@@ -61,36 +61,35 @@ export class DeliveryDetails {
     expect(await this.savedAddressFirstName.first().innerText()).toEqual(
       await this.firstNameInput.inputValue()
     );
-
     await this.savedAddressLastName.first().waitFor();
     expect(await this.savedAddressLastName.first().innerText()).toBe(
-      this.lastNameInput.inputValue()
+      await this.lastNameInput.inputValue()
     );
 
     await this.savedAddressStreet.first().waitFor();
     expect(await this.savedAddressStreet.first().innerText()).toBe(
-      this.streetInput.inputValue()
-    );
-
-    await this.savedAddressPostcode.first().waitFor();
-    expect(await this.savedAddressPostcode.first().innerText()).toBe(
-      this.postcodeInput.inputValue()
+      await this.streetInput.inputValue()
     );
 
     await this.savedAddressCity.first().waitFor();
     expect(await this.savedAddressCity.first().innerText()).toBe(
-      this.cityInput.inputValue()
+      await this.cityInput.inputValue()
+    );
+
+    await this.savedAddressPostcode.first().waitFor();
+    expect(await this.savedAddressPostcode.first().innerText()).toBe(
+      await this.postcodeInput.inputValue()
     );
 
     await this.savedAddressCountry.first().waitFor();
     expect(await this.savedAddressCountry.first().innerText()).toBe(
-      this.countryDropdown.inputValue()
+      await this.countryDropdown.inputValue()
     );
+  };
 
-    continueToPayment = async () => {
-      await this.continueToPayment.waitFor();
-      await this.continueToPayment.click();
-      await this.continueToPayment.waitForURL(/\/payment/, { timeout: 3000 });
-    };
+  continueToPayment = async () => {
+    await this.continueToPaymentButton.waitFor();
+    await this.continueToPaymentButton.click();
+    await this.page.waitForURL(/\/payment/, { timeout: 3000 });
   };
 }
