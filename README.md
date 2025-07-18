@@ -16,6 +16,10 @@ Projekt powstał podczas kursu na platformie Udemy i obejmuje testowanie podstaw
 
 ## Jak uruchomić testy
 1. Sklonuj repozytorium  
-2. Zainstaluj zależności:
+2. Zainstaluj zależności
+
+
+![CI](https://github.com/OlgaWdz/Automation-Testing-of-Local-Web-Application-Using-Playwright/actions/workflows/playwright.yml/badge.svg)
+
 
    
