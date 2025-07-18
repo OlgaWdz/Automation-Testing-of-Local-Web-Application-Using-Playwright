@@ -110,6 +110,6 @@ module.exports = {
   reporter: [["list"], ["html"]],
   use: {
     trace: "on",
-    headless: process.env.HEADLESS === "true",
+    headless: "true",
   },
 };
